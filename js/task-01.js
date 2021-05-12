@@ -14,27 +14,13 @@
 // Количество элементов: 4
 
 const ulEl = document.querySelector('#categories');
-console.log(ulEl);
-console.dir(ulEl);
+
 const quantityOfcategory = ulEl.children.length;
 console.log(`В списке ${quantityOfcategory} категории`);
 
-// const getTitleAndQuantityOf
-function getTitle(ulEl) {
-    console.log(ulEl.children);
-    // const f = [...ulEl.children];
-    // console.log(f);
+const arrayOfLiEl = document.querySelectorAll('.item');
 
-    // console.log(`Категория: ${ulEl.children[0].firstElementChild.textContent }`);
-    // console.log(`Количество: ${ulEl.children[0].lastElementChild.children.length}`);
-//  ulEl.children.forEach(child => {
-//         console.log(child);
-//         console.log(`Категория: ${ulEl.child.firstElementChild.textContent }`);
-//     console.log(`Количество: ${ulEl.child.lastElementChild.children.length}`);
-//         // console.log(child.firstElementChild.textContent);
-//         // console.log(f);
-//     });
-
-};
-
-getTitle(ulEl);
+arrayOfLiEl.forEach((elem) => {
+    console.log(`Категория: ${elem.firstElementChild.textContent}`);
+    console.log(`Количество элементов: ${elem.lastElementChild.children.length}`);
+});

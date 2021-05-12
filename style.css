@@ -1,0 +1,8 @@
+.gallery-list {
+  display: flex;
+}
+
+.gallery-item {
+  width: 250px;
+  margin-right: 30px;
+}
