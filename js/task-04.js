@@ -17,8 +17,8 @@ const valueRef = document.querySelector('#value');
 let counterValue = 0;
 
 
-decrementBtnRef.addEventListener('click', onIncrement);
-incrementBtnRef.addEventListener('click', onDecrement );
+decrementBtnRef.addEventListener('click', onDecrement);
+incrementBtnRef.addEventListener('click', onIncrement);
 
 function onIncrement() {
     counterValue += 1;
