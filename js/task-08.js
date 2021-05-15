@@ -28,32 +28,34 @@ function getRandom(min, max){
 }
 
 
-function createBoxes(amount) {
-    inputEl.addEventListener('input', OnChangeInputValue);
+// function createBoxes(amount) {
+//     inputEl.addEventListener('input', OnChangeInputValue);
 
-    function OnChangeInputValue() {
-    amount = inputEl.value;
-    }
-    const arrayBoxes = [];
+//     function OnChangeInputValue() {
+//     amount = inputEl.value;
+//     }
+//     const arrayBoxes = [];
 
-    let size = 30;
-    for (let i = 0; i < inputEl.value; i += 1){
-            arrayBoxes[i] = document.createElement('div');
-            arrayBoxes[i].style.width = `${size}px`;
-            arrayBoxes[i].style.height = `${size}px`;
-            arrayBoxes[i].style.backgroundColor = `rgb(${getRandom(0, 255)}, ${getRandom(0, 255)}, ${getRandom(0, 255)})`;
-            arrayBoxes[i].classList.add('box');
-        size += 10;
-    };
+//     let size = 30;
+//     for (let i = 0; i < inputEl.value; i += 1){
+//             arrayBoxes[i] = document.createElement('div');
+//             arrayBoxes[i].style.width = `${size}px`;
+//             arrayBoxes[i].style.height = `${size}px`;
+//             arrayBoxes[i].style.backgroundColor = `rgb(${getRandom(0, 255)}, ${getRandom(0, 255)}, ${getRandom(0, 255)})`;
+//         arrayBoxes[i].classList.add('box');
+
+//         size += 10;
+//         arrayBoxes.push(arrayBoxes[i]);
+//     };
 
 
-    return divContainerEl.append(...arrayBoxes);
+//     return divContainerEl.append(...arrayBoxes);
 
-};
-
+// };
 
 cleanBtnEl.addEventListener('click', destroyBoxes);
 function destroyBoxes() {
+
     const divChildEl = document.querySelectorAll('.box');
         divChildEl.forEach((divChild) => {
         divContainerEl.removeChild(divChild);
@@ -63,6 +65,50 @@ function destroyBoxes() {
 
 }
 
+// На досуге попробуйте переписать задание 8 без использования
+// цикла for (нужны функциональные методы массива)
+// + реализуйте функционал, при котором при каждом
+// последующем рендере дивов
+// (после очередного нажатия кнопки "создать")
+// размер первого исчисляется исходя из размеров отрендеренного
+// последнего(и дорисовываются дивы после отрендеренных ранее)
 
 
+function createBoxes(amount) {
+    inputEl.addEventListener('input', OnChangeInputValue);
+
+    function OnChangeInputValue() {
+    amount = inputEl.value;
+    }
+
+    const emptyArr = [];
+    emptyArr.length = inputEl.value;
+
+
+    let size = 30;
+
+    const arrayBoxes = emptyArr.fill('', 0, emptyArr.length).map((elem) => {
+            elem = document.createElement('div');
+            elem.style.width = `${size}px`;
+            elem.style.height = `${size}px`;
+            elem.style.backgroundColor = `rgb(${getRandom(0, 255)}, ${getRandom(0, 255)}, ${getRandom(0, 255)})`;
+            elem.classList.add('box');
+
+        size += 10;
+        return elem;
+
+    })
+
+
+
+    return divContainerEl.append(...arrayBoxes);
+
+};
+
+// const divBoxEl = document.querySelectorAll('.box');
+
+// console.log(divContainerEl);
+// console.log(divBoxEl);
+
+// if(divContainerEl)
 
