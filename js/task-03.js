@@ -33,18 +33,11 @@ const images = [
 ];
 
 const galleryEl = document.querySelector('#gallery');
-const createGallery = images => {
-  return images.map((image) => {
-      const liEl = document.createElement('li');
-      const imageEl = liEl.insertAdjacentHTML(
-            "afterbegin",
-            `<img src="${image.url}" alt = "${image.alt}">`
 
-    );
-    return liEl;
+const arrayOfLiEl = images.map((image) => {
+  return `<li><img src="${image.url}" alt = "${image.alt}"></li>`
+})
 
-    })
-};
-const elements = createGallery(images);
-galleryEl.append(...elements);
+const string = arrayOfLiEl.join('');
 
+galleryEl.insertAdjacentHTML("afterbegin", string);
