@@ -53,6 +53,8 @@ function getRandom(min, max){
 
 // };
 
+let size = 30;
+
 cleanBtnEl.addEventListener('click', destroyBoxes);
 function destroyBoxes() {
 
@@ -62,6 +64,7 @@ function destroyBoxes() {
         })
 
     inputEl.value = '';
+    size = 30;
 
 }
 
@@ -84,10 +87,8 @@ function createBoxes(amount) {
     const emptyArr = [];
     emptyArr.length = inputEl.value;
 
-
-    let size = 30;
-
-    const arrayBoxes = emptyArr.fill('', 0, emptyArr.length).map((elem) => {
+    // const arrayBoxes = emptyArr.fill('', 0, emptyArr.length).map((elem) => {
+    const arrayBoxes = [...Array(Number(inputEl.value))].map((elem) => {
             elem = document.createElement('div');
             elem.style.width = `${size}px`;
             elem.style.height = `${size}px`;
@@ -98,17 +99,8 @@ function createBoxes(amount) {
         return elem;
 
     })
-
-
-
     return divContainerEl.append(...arrayBoxes);
 
 };
 
-// const divBoxEl = document.querySelectorAll('.box');
-
-// console.log(divContainerEl);
-// console.log(divBoxEl);
-
-// if(divContainerEl)
 
