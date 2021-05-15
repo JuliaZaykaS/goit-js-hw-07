@@ -14,8 +14,21 @@ const ingredients = [
 
 const ulEl = document.querySelector('#ingredients');
 
-ingredients.forEach((ingredient) => {
+// ingredents.forEach((ingredient) => {
+//     const liEl = document.createElement('li');
+//     liEl.textContent = ingredient;
+//     ulEl.appendChild(liEl);
+// });
+
+const getIngredientsList = ingredients => {
+  return ingredients.map((ingredient) => {
     const liEl = document.createElement('li');
     liEl.textContent = ingredient;
-    ulEl.appendChild(liEl);
-});
+    return liEl;
+  });
+};
+
+const elements = getIngredientsList(ingredients);
+ulEl.append(...elements);
+
+

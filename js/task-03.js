@@ -34,15 +34,17 @@ const images = [
 
 const galleryEl = document.querySelector('#gallery');
 const createGallery = images => {
-    return images.map((image) => {
-
-         const imageEl = galleryEl.insertAdjacentHTML(
+  return images.map((image) => {
+      const liEl = document.createElement('li');
+      const imageEl = liEl.insertAdjacentHTML(
             "afterbegin",
-            `<img src="${image.url}" alt = "${image.alt}" class = "gallery-item">`
+            `<img src="${image.url}" alt = "${image.alt}">`
 
     );
+    return liEl;
 
     })
 };
-createGallery(images);
+const elements = createGallery(images);
+galleryEl.append(...elements);
 
